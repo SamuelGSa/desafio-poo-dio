@@ -7,17 +7,17 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso();
+        Curso curso1 = criaCurso();
         curso1.setTitulo("curso java");
         curso1.setDescricao("descrição curso java");
         curso1.setCargaHoraria(8);
 
-        Curso curso2 = new Curso();
+        Curso curso2 = criaCurso();
         curso2.setTitulo("curso js");
         curso2.setDescricao("descrição curso js");
         curso2.setCargaHoraria(4);
 
-        Mentoria mentoria = new Mentoria();
+        Mentoria mentoria = criaMentoria();
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
@@ -26,16 +26,15 @@ public class Main {
         System.out.println(curso2);
         System.out.println(mentoria);*/
 
-        Bootcamp bootcamp = new Bootcamp();
+        Bootcamp bootcamp = criaBootCamp();
         bootcamp.setNome("Bootcamp Java Developer");
         bootcamp.setDescricao("Descrição Bootcamp Java Developer");
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
 
-        Dev devCamila = new Dev();
+        Dev devCamila = criaDev();
         devCamila.setNome("Camila");
-        devCamila.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         devCamila.progredir();
         devCamila.progredir();
@@ -46,9 +45,8 @@ public class Main {
 
         System.out.println("-------");
 
-        Dev devJoao = new Dev();
+        Dev devJoao = criaDev();
         devJoao.setNome("Joao");
-        devJoao.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         devJoao.progredir();
         devJoao.progredir();
@@ -60,4 +58,20 @@ public class Main {
 
     }
 
+
+    static Curso criaCurso(){
+        return new Curso();
+    }
+
+    static Mentoria criaMentoria(){
+        return new Mentoria();
+    }
+
+    static Bootcamp criaBootCamp(){
+        return new Bootcamp();
+    }
+
+    static Dev criaDev(){
+        return new Dev();
+    }
 }
